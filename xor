@@ -1,0 +1,77 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws IOException
+	{
+		// your code goes here
+		try {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		long t = Long.parseLong(br.readLine().trim());
+		while(t-->0){
+		    
+		int num_opr=0,n=0,k=0;    
+		    		    
+		int ar[] = new int[2];
+		
+		    String inputLine[] = br.readLine().trim().split(" ");
+		    for(int i=0; i<2; i++){
+		        n = Integer.parseInt(inputLine[0]);
+		        k = Integer.parseInt(inputLine[1]);
+		    }
+		    
+		    long b[] = new long[n];
+		    String inputLine2[] = br.readLine().trim().split(" ");
+		    for(int i=0; i<n; i++){
+		        b[i] = Long.parseLong(inputLine2[i]);
+		    }
+		    
+		    int temp[]=new int[33];
+		    int var;
+		    
+		    for(int i=0;i<n;i++){
+		        var=32;
+		        
+		        while(b[i]>0){
+		            temp[var]+=b[i]%2;
+		            b[i]/=2;
+		            var--;
+		            
+		        }
+		    }
+		    
+		    int l=0;
+		    
+		    while(l!=33){
+		        if(temp[l]!=0)
+		        break;
+		        
+		        l++;
+		    }
+		    
+		    for(int i=l;i<=32;i++)
+		    {
+		        if(temp[i] %k==0)
+		        num_opr+=temp[i]/k;
+		        else
+		        num_opr+=temp[i]/k +1;
+		        
+		    }
+		    
+		    
+		    System.out.println(num_opr);
+		
+		
+	
+	}
+		}
+		catch(Exception e) {
+		    return;
+		}
+	}
+}
